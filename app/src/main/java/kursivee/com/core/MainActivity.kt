@@ -1,6 +1,6 @@
 package kursivee.com.core
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kursivee.com.core.ui.main.MainFragment
 
