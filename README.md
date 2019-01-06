@@ -1,0 +1,5 @@
+- Androidx
+- Koin
+- Single Activity
+- Retrofit2
+- Coroutines
