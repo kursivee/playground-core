@@ -3,6 +3,7 @@ package kursivee.com.core
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kursivee.com.core.ui.main.MainFragment
+import org.koin.android.ext.android.startKoin
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,6 +15,7 @@ class MainActivity : AppCompatActivity() {
                 .replace(R.id.container, MainFragment.newInstance())
                 .commitNow()
         }
+        startKoin(this, listOf(mainModule))
     }
 
 }
