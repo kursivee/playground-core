@@ -23,11 +23,21 @@ class MainFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        initViewModel()
+        initOnClickHandlers()
+    }
+
+    private fun initOnClickHandlers() {
+        login_btn.setOnClickListener {
+            vm.login()
+        }
+    }
+
+    private fun initViewModel() {
         vm = getViewModel()
         vm.getSession().observe(this, Observer {
-            message.text = it
+            message.text = it.session
         })
-        vm.login()
     }
 
 }

@@ -1,30 +1,19 @@
 package kursivee.com.core.ui.main
 
-import android.util.Log
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import kursivee.com.core.login.LoginApi
+import kursivee.com.core.login.LoginRepository
+import kursivee.com.core.login.LoginResponse
 
-class MainViewModel(private val loginApi: LoginApi) : ViewModel() {
+class MainViewModel(private val loginRepository: LoginRepository) : ViewModel() {
 
-    private val session = MutableLiveData<String>()
+    private var session: LiveData<LoginResponse> = loginRepository.getLoginResult()
 
     fun login() {
-        GlobalScope.launch {
-            Log.d("TAG", "here")
-            withContext(Dispatchers.Main) {
-                session.value = loginApi.login().await().session
-                Log.d("TAG", session.value)
-            }
-        }
+        loginRepository.login()
     }
 
-    fun getSession() : LiveData<String> {
+    fun getSession() : LiveData<LoginResponse> {
         return session
     }
 }

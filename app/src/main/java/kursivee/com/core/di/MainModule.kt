@@ -2,6 +2,7 @@ package kursivee.com.core.di
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import kursivee.com.core.login.LoginApi
+import kursivee.com.core.login.LoginRepository
 import kursivee.com.core.ui.main.MainViewModel
 import org.koin.androidx.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module
@@ -13,7 +14,7 @@ const val BASE_URL = "https://www.mocky.io/v2/"
 val mainModule = module {
     single {
         Retrofit.Builder()
-            .baseUrl(kursivee.com.core.di.BASE_URL)
+            .baseUrl(BASE_URL)
             .addConverterFactory(MoshiConverterFactory.create())
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .build()
@@ -21,6 +22,10 @@ val mainModule = module {
 
     single {
         get<Retrofit>().create(LoginApi::class.java)
+    }
+
+    single {
+        LoginRepository(get())
     }
 
     viewModel {

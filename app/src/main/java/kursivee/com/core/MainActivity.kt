@@ -2,6 +2,7 @@ package kursivee.com.core
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import kursivee.com.core.di.mainModule
 import org.koin.android.ext.android.startKoin
 
 class MainActivity : AppCompatActivity() {
@@ -9,7 +10,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
-        startKoin(this, listOf(kursivee.com.core.di.mainModule))
+        startKoin(this, listOf(mainModule))
     }
 
 }
