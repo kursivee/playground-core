@@ -31,12 +31,18 @@ class MainFragment : Fragment() {
         login_btn.setOnClickListener {
             vm.login()
         }
+        data_btn.setOnClickListener {
+            vm.data()
+        }
     }
 
     private fun initViewModel() {
         vm = getViewModel()
         vm.getSession().observe(this, Observer {
             message.text = it.session
+        })
+        vm.data.observe(this, Observer {
+            data_tv.text = it.session
         })
     }
 

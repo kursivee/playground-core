@@ -22,6 +22,11 @@
     - https://developer.android.com/training/articles/security-config
 - Add internet permission
     - https://java2blog.com/add-internet-permission-in-androidmanifest-android-studio/
+- Add global headers
+    - https://futurestud.io/tutorials/retrofit-add-custom-request-header
+    
+### Monitoring Network
+- https://developer.android.com/studio/profile/network-profiler
 
 ### Adding Navigation graph
 - https://developer.android.com/topic/libraries/architecture/navigation/navigation-implementing

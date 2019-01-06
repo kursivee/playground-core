@@ -1,4 +1,4 @@
-package kursivee.com.core.login
+package kursivee.com.core.service.login
 
 import kotlinx.coroutines.Deferred
 import retrofit2.Response
