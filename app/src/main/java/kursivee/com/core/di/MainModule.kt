@@ -1,4 +1,4 @@
-package kursivee.com.core
+package kursivee.com.core.di
 
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import kursivee.com.core.login.LoginApi
@@ -13,7 +13,7 @@ const val BASE_URL = "https://www.mocky.io/v2/"
 val mainModule = module {
     single {
         Retrofit.Builder()
-            .baseUrl(BASE_URL)
+            .baseUrl(kursivee.com.core.di.BASE_URL)
             .addConverterFactory(MoshiConverterFactory.create())
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .build()
