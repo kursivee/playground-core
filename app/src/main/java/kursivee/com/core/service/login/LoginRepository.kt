@@ -1,28 +1,21 @@
-package kursivee.com.core.login
+package kursivee.com.core.service.login
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import kursivee.com.core.service.session.SessionService
 
-class LoginRepository(private val loginApi: LoginApi) {
+class LoginRepository(private val loginApi: LoginApi, private val sessionService: SessionService) {
 
-    private lateinit var cacheResponse: LoginResponse
     private val loginResult = MutableLiveData<LoginResponse>()
 
     fun login() {
-        if(::cacheResponse.isInitialized) {
-            cacheResponse.session += "CACHED"
-            loginResult.postValue(cacheResponse)
-            Log.d("${this::class.java.simpleName}", cacheResponse.session)
-            return
-        }
         GlobalScope.launch {
             val response = loginApi.login().await()
             if(response.isSuccessful) {
                 loginResult.postValue(response.body())
-                cacheResponse = response.body()!!
+                sessionService.sessionToken = response.body()!!.session
             }
         }
     }
