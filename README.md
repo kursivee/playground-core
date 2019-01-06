@@ -18,7 +18,7 @@
 
 ### Adding retrofit with coroutines
 - https://android.jlelse.eu/kotlin-coroutines-and-retrofit-e0702d0b8e8f
-- Add security config
+- Add security config for SSL certificates
     - https://developer.android.com/training/articles/security-config
 - Add internet permission
     - https://java2blog.com/add-internet-permission-in-androidmanifest-android-studio/
