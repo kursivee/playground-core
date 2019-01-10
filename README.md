@@ -5,6 +5,12 @@
 - Retrofit2
 - Coroutines
 - MVVM
+- Modularized
+
+### Modularirzing Application
+- https://github.com/sanogueralorenzo/Android-Kotlin-Clean-Architecture
+- Navigating in a modularized application
+    - https://proandroiddev.com/dynamic-feature-module-with-dependency-less-navigation-koin-774694f41f63
 
 ### MVVM
 - https://developer.android.com/topic/libraries/architecture/viewmodel

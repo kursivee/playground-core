@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import kursivee.com.core.service.session.SessionService
+import kursivee.com.network.SessionService
 
 class LoginRepository(private val loginApi: LoginApi, private val sessionService: SessionService) {
 
